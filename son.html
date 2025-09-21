@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SownNPXSport — Landing</title>
+    <meta
+      name="description"
+      content="SownNPXSport - Trang giới thiệu sản phẩm thể thao cao cấp"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome (icons) -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- AOS (scroll animation) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --brand: #0ea5e9; /* xanh dương tươi */
+        --dark: #0b1220; /* nền tối sang */
+        --muted: #667085;
+        --light: #f6f9ff;
+        --radius: 18px;
+        --radius-sm: 14px;
+        --shadow-lg: 0 24px 60px rgba(2, 6, 23, 0.12);
+        --shadow-md: 0 14px 30px rgba(2, 6, 23, 0.1);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        color: #0f172a;
+        background: #fff;
+      }
+
+      /* LAYOUT WIDTH */
+      .container-narrow {
+        max-width: 1140px;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        backdrop-filter: saturate(160%) blur(8px);
+        transition: box-shadow 0.25s, background-color 0.25s;
+      }
+      .navbar.scrolled {
+        box-shadow: 0 4px 24px rgba(2, 6, 23, 0.08);
+        background: #fff;
+      }
+      .navbar .nav-link {
+        font-weight: 500;
+      }
+      .navbar .nav-link.active {
+        color: var(--brand) !important;
+      }
+      .brand-logo {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+      .btn-brand {
+        background: var(--brand);
+        color: #fff;
+        border-radius: 999px;
+        padding: 0.6rem 1.1rem;
+        border: none;
+      }
+      .btn-brand:hover {
+        opacity: 0.92;
+      }
+
+      /* HERO */
+      .hero {
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(
+          180deg,
+          #07111f 0%,
+          #0b1730 60%,
+          #0c1b38 100%
+        );
+      }
+      .hero .glow {
+        position: absolute;
+        inset: -10%;
+        background: radial-gradient(
+          60% 60% at 70% 30%,
+          rgba(14, 165, 233, 0.35),
+          transparent 60%
+        );
+      }
+      .hero .badge-soft {
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
+        color: #cde9ff;
+      }
+      .hero h1 {
+        font-weight: 700;
+        letter-spacing: 0.2px;
+      }
+      .hero p.lead {
+        color: #cbd5e1;
+      }
+      .hero img.mock {
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-lg);
+      }
+
+      /* SECTION HEAD */
+      .section-title {
+        font-weight: 700;
+      }
+      .section-desc {
+        color: #475569;
+      }
+      .section {
+        padding-block: 64px;
+      }
+      .section + .section {
+        border-top: 1px solid #edf2f7;
+        background: #fff;
+      }
+
+      /* FEATURE STRIP */
+      .feature {
+        background: #041020;
+        color: #e2efff;
+      }
+      .feature .icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: rgba(14, 165, 233, 0.15);
+        color: #7dd3fc;
+      }
+
+      /* PRODUCTS */
+      .product-card {
+        border: 1px solid #e8eef6;
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        background: #fff;
+      }
+      .product-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-md);
+      }
+      .product-media {
+        position: relative;
+      }
+      .badge-tag {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: #0ea5e9;
+        color: #fff;
+        padding: 0.3rem 0.6rem;
+        border-radius: 999px;
+        font-size: 0.75rem;
+      }
+      .product-img {
+        width: 100%;
+        aspect-ratio: 4/3;
+        object-fit: cover;
+      }
+      .price {
+        font-weight: 700;
+      }
+      .price small {
+        color: var(--muted);
+        font-weight: 500;
+      }
+
+      /* TESTIMONIAL */
+      .quote {
+        border: 1px solid #e7edf8;
+        border-radius: var(--radius);
+        padding: 1.25rem;
+        height: 100%;
+        background: #fff;
+      }
+      .stars {
+        color: #f59e0b;
+      }
+
+      /* CTA */
+      .cta {
+        background: linear-gradient(180deg, #e6f6ff 0%, #fff 100%);
+        border-top: 1px solid #e6eef8;
+      }
+
+      /* FOOTER */
+      footer {
+        background: #061224;
+        color: #a3b5cc;
+      }
+      footer a {
+        color: #cde9ff;
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-body-tertiary">
+      <div class="container container-narrow">
+        <a class="navbar-brand d-flex align-items-center fw-bold" href="#">
+          <img
+            src="/picture/6cfafa68-2b8f-4d30-b94e-937d67d0bf26.png"
+            alt="SownNP Logo"
+            class="brand-logo me-2"
+          />
+          SownNPX<span class="text-primary">Sport</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#nav"
+          aria-controls="nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#sanpham">Sản phẩm</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#uudai">Ưu đãi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#danhgia">Đánh giá</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#lienhe">Liên hệ</a>
+            </li>
+          </ul>
+          <a class="btn btn-brand ms-lg-3" href="#lienhe">Mua ngay</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero py-5 py-lg-6">
+      <div class="glow"></div>
+      <div class="container container-narrow">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6" data-aos="fade-right">
+            <span class="badge-soft">Sưu tập mới 2025</span>
+            <h1 class="display-5 mt-3">
+              Trang bị phong cách — Hiệu năng đỉnh cao
+            </h1>
+            <p class="lead mt-3">
+              Bộ sưu tập đồ thể thao cao cấp, chất liệu thoáng khí, bền bỉ, phù
+              hợp gym, chạy bộ, training mỗi ngày.
+            </p>
+            <div class="d-flex gap-3 mt-3">
+              <a href="#sanpham" class="btn btn-brand btn-lg"
+                ><i class="fa-solid fa-bag-shopping me-2"></i>Xem sản phẩm</a
+              >
+              <a href="#uudai" class="btn btn-outline-light btn-lg"
+                ><i class="fa-solid fa-bolt me-2"></i>Ưu đãi</a
+              >
+            </div>
+            <div class="d-flex gap-4 mt-4 small text-secondary">
+              <div>
+                <i class="fa-solid fa-truck-fast me-2"></i>Giao nhanh 2-4 ngày
+              </div>
+              <div><i class="fa-solid fa-rotate me-2"></i>Đổi trả 7 ngày</div>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <img
+              class="img-fluid mock"
+              src="/picture/6cfafa68-2b8f-4d30-b94e-937d67d0bf26.png"
+              alt="SownNPXSport Mockup"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- FEATURE STRIP -->
+    <section class="feature py-4">
+      <div class="container container-narrow">
+        <div class="row text-center g-3">
+          <div class="col-6 col-lg-3">
+            <div class="d-flex align-items-center justify-content-center gap-3">
+              <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div>
+                <div class="fw-semibold">Chính hãng</div>
+                <div class="small">Bảo hành 12 tháng</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="d-flex align-items-center justify-content-center gap-3">
+              <div class="icon"><i class="fa-solid fa-truck"></i></div>
+              <div>
+                <div class="fw-semibold">Miễn phí ship</div>
+                <div class="small">Đơn từ 699k</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="d-flex align-items-center justify-content-center gap-3">
+              <div class="icon"><i class="fa-solid fa-lock"></i></div>
+              <div>
+                <div class="fw-semibold">Thanh toán an toàn</div>
+                <div class="small">COD / VNPAY / Momo</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="d-flex align-items-center justify-content-center gap-3">
+              <div class="icon"><i class="fa-solid fa-headset"></i></div>
+              <div>
+                <div class="fw-semibold">Hỗ trợ 24/7</div>
+                <div class="small">Chat / Zalo / FB</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="sanpham" class="section">
+      <div class="container container-narrow">
+        <div class="text-center mb-4">
+          <h2 class="section-title" data-aos="fade-up">Sản phẩm nổi bật</h2>
+          <p class="section-desc" data-aos="fade-up" data-aos-delay="50">
+            Thêm các sản phẩm bán chạy nhất của bạn ở đây
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- CARD 0 (giữ theo bạn) -->
+          <div class="col-12 col-sm-6 col-lg-3" data-aos="zoom-in">
+            <div class="product-card h-100">
+              <div class="product-media">
+                <span class="badge-tag">Hot</span>
+                <img
+                  class="product-img"
+                  src="https://supersports.com.vn/cdn/shop/files/JI7428-1_1200x1200.jpg?v=1751365250"
+                  alt="Long Bào MU 25/26"
+                />
+              </div>
+              <div class="p-3">
+                <h6 class="mb-1">Long bào MU 25/26</h6>
+                <div class="small text-muted">
+                  Siêu mát, phát sáng ở trong hang
+                </div>
+                <div
+                  class="d-flex align-items-center justify-content-between mt-2"
+                >
+                  <div class="price">
+                    1.111.111.111đ
+                    <small class="text-decoration-line-through"
+                      >1.222.222.222đ</small
+                    >
+                  </div>
+                  <a href="#lienhe" class="btn btn-sm btn-outline-primary"
+                    >Mua</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 1 -->
+          <div class="col-12 col-sm-6 col-lg-3" data-aos="zoom-in">
+            <div class="product-card h-100">
+              <div class="product-media">
+                <img
+                  class="product-img"
+                  src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800&auto=format&fit=crop"
+                  alt="Giày chạy bộ"
+                />
+              </div>
+              <div class="p-3">
+                <h6 class="mb-1">Giày chạy bộ AirFlex</h6>
+                <div class="small text-muted">Siêu nhẹ, bám đường</div>
+                <div
+                  class="d-flex align-items-center justify-content-between mt-2"
+                >
+                  <div class="price">1.290.000đ</div>
+                  <a href="#lienhe" class="btn btn-sm btn-outline-primary"
+                    >Mua</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+          <div
+            class="col-12 col-sm-6 col-lg-3"
+            data-aos="zoom-in"
+            data-aos-delay="50"
+          >
+            <div class="product-card h-100">
+              <div class="product-media">
+                <span class="badge-tag" style="background: #22c55e">New</span>
+                <img
+                  class="product-img"
+                  src="https://product.hstatic.net/200000472743/product/img_3706_a928467b4f884905b58119a467e0052e_master.jpg"
+                  alt="Áo training"
+                />
+              </div>
+              <div class="p-3">
+                <h6 class="mb-1">Áo training CoolDry</h6>
+                <div class="small text-muted">Thoáng khí, chống bám mùi</div>
+                <div
+                  class="d-flex align-items-center justify-content-between mt-2"
+                >
+                  <div class="price">390.000đ</div>
+                  <a href="#lienhe" class="btn btn-sm btn-outline-primary"
+                    >Mua</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+          <div
+            class="col-12 col-sm-6 col-lg-3"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div class="product-card h-100">
+              <div class="product-media">
+                <img
+                  class="product-img"
+                  src="https://thethaonamviet.vn/wp-content/uploads/2024/10/ta-tay-cao-su-nam-viet-sport-avatar.jpg"
+                  alt="Tạ tay"
+                />
+              </div>
+              <div class="p-3">
+                <h6 class="mb-1">Tạ tay SownNPXSport</h6>
+                <div class="small text-muted">Bọc cao su, chắc tay</div>
+                <div
+                  class="d-flex align-items-center justify-content-between mt-2"
+                >
+                  <div class="price">11.490.000đ</div>
+                  <a href="#lienhe" class="btn btn-sm btn-outline-primary"
+                    >Mua</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 4 -->
+          <div
+            class="col-12 col-sm-6 col-lg-3"
+            data-aos="zoom-in"
+            data-aos-delay="150"
+          >
+            <div class="product-card h-100">
+              <div class="product-media">
+                <img
+                  class="product-img"
+                  src="https://res.cloudinary.com/dbkyfovgg/image/upload/v1689583844/procamping.vn/B%C3%ACnh_N%C6%B0%E1%BB%9Bc_Xe_%C4%90%E1%BA%A1p_Gi%E1%BB%AF_Nhi%E1%BB%87t_Polar_Bottle_Sport_0.59L_-4_-_zfu9wt.jpg"
+                  alt="Bình thể thao"
+                />
+              </div>
+              <div class="p-3">
+                <h6 class="mb-1">Bình nước giữ nhiệt</h6>
+                <div class="small text-muted">Giữ lạnh 12 giờ</div>
+                <div
+                  class="d-flex align-items-center justify-content-between mt-2"
+                >
+                  <div class="price">220.000đ</div>
+                  <a href="#lienhe" class="btn btn-sm btn-outline-primary"
+                    >Mua</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 5 -->
+          <div
+            class="col-12 col-sm-6 col-lg-3"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div class="product-card h-100">
+              <div class="product-media">
+                <img
+                  class="product-img"
+                  src="https://pos.nvncdn.com/be3294-43017/art/20220612_UQ6ghXLo6AejeaPwUIJqfrfs.jpg?v=1673320467"
+                  alt="Giày chạy"
+                />
+              </div>
+              <div class="p-3">
+                <h6 class="mb-1">Giày chạy Hoka Mach 5</h6>
+                <div class="small text-muted">Chạy 42km easy</div>
+                <div
+                  class="d-flex align-items-center justify-content-between mt-2"
+                >
+                  <div class="price">5.555.000đ</div>
+                  <a href="#lienhe" class="btn btn-sm btn-outline-primary"
+                    >Mua</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BANNER giữa trang -->
+        <div class="row align-items-center g-4 mt-5">
+          <div class="col-lg-6" data-aos="fade-right">
+            <img
+              class="img-fluid rounded-4"
+              src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1400&auto=format&fit=crop"
+              alt="Banner"
+            />
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <h3 class="fw-bold">Đạt hiệu suất tối đa trong từng buổi tập</h3>
+            <p class="mb-3 text-secondary">
+              Sử dụng chất liệu cao cấp và thiết kế tối ưu cho vận động mạnh,
+              giúp bạn tự tin bứt phá giới hạn.
+            </p>
+            <ul class="text-secondary">
+              <li>Thoáng khí, khô nhanh</li>
+              <li>Độ bền cao, co giãn 4 chiều</li>
+              <li>Phù hợp gym, chạy, training</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPECIAL OFFER -->
+    <section id="uudai" class="py-5 cta">
+      <div class="container container-narrow">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-7" data-aos="fade-right">
+            <h2 class="section-title">Ưu đãi đặc biệt tuần này</h2>
+            <p class="section-desc">
+              Nhập mã <span class="fw-bold">SS10</span> giảm 10% cho đơn từ
+              499k. Áp dụng đến 30/09/2025.
+            </p>
+          </div>
+          <div class="col-lg-5 text-lg-end" data-aos="fade-left">
+            <a href="#lienhe" class="btn btn-brand btn-lg"
+              ><i class="fa-solid fa-ticket me-2"></i>Nhận coupon</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="danhgia" class="section">
+      <div class="container container-narrow">
+        <div class="text-center mb-4">
+          <h2 class="section-title" data-aos="fade-up">Khách hàng nói gì</h2>
+          <p class="section-desc" data-aos="fade-up" data-aos-delay="50">
+            Một vài đánh giá thực tế từ người dùng
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4" data-aos="fade-up">
+            <div class="quote">
+              <div class="stars mb-1">★★★★★</div>
+              <p class="mb-2">
+                Giày đi rất êm, chạy 5km không bị nóng chân. Đóng gói chắc chắn,
+                giao nhanh!
+              </p>
+              <div class="d-flex align-items-center gap-3 mt-3">
+                <img
+                  class="rounded-circle"
+                  width="44"
+                  height="44"
+                  src="https://i.pravatar.cc/88?img=12"
+                  alt="avatar"
+                />
+                <div>
+                  <div class="fw-semibold">Minh Duy</div>
+                  <div class="small text-muted">Hà Nội</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="50">
+            <div class="quote">
+              <div class="stars mb-1">★★★★★</div>
+              <p class="mb-2">
+                Áo thấm hút mồ hôi tốt, form đẹp. Sẽ ủng hộ tiếp!
+              </p>
+              <div class="d-flex align-items-center gap-3 mt-3">
+                <img
+                  class="rounded-circle"
+                  width="44"
+                  height="44"
+                  src="https://i.pravatar.cc/88?img=30"
+                  alt="avatar"
+                />
+                <div>
+                  <div class="fw-semibold">Hoài An</div>
+                  <div class="small text-muted">Đà Nẵng</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="quote">
+              <div class="stars mb-1">★★★★★</div>
+              <p class="mb-2">
+                Tạ tay bọc cao su cầm rất chắc, không trơn trượt. Giá hợp lý.
+              </p>
+              <div class="d-flex align-items-center gap-3 mt-3">
+                <img
+                  class="rounded-circle"
+                  width="44"
+                  height="44"
+                  src="https://i.pravatar.cc/88?img=5"
+                  alt="avatar"
+                />
+                <div>
+                  <div class="fw-semibold">Trọng Hiếu</div>
+                  <div class="small text-muted">TP.HCM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="lienhe" class="section">
+      <div class="container container-narrow">
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-6" data-aos="fade-right">
+            <h2 class="section-title">Liên hệ đặt hàng</h2>
+            <p class="section-desc">
+              Điền form hoặc chat Zalo/Facebook để được tư vấn trong 5 phút.
+            </p>
+            <form class="row g-3" onsubmit="return handleSubmit(event)">
+              <div class="col-md-6">
+                <label class="form-label">Họ tên</label>
+                <input type="text" class="form-control" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Số điện thoại</label>
+                <input type="tel" class="form-control" required />
+              </div>
+              <div class="col-12">
+                <label class="form-label">Sản phẩm quan tâm</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="VD: Giày AirFlex, Áo CoolDry..."
+                />
+              </div>
+              <div class="col-12">
+                <label class="form-label">Ghi chú</label>
+                <textarea class="form-control" rows="3"></textarea>
+              </div>
+              <div class="col-12 d-flex gap-2">
+                <button class="btn btn-brand" type="submit">
+                  <i class="fa-solid fa-paper-plane me-2"></i>Gửi yêu cầu
+                </button>
+                <a
+                  class="btn btn-outline-primary"
+                  target="_blank"
+                  href="https://zalo.me/"
+                  rel="noopener"
+                  >Chat Zalo</a
+                >
+              </div>
+              <div id="formAlert" class="alert alert-success d-none mt-2">
+                Cảm ơn bạn! Chúng tôi sẽ liên hệ sớm.
+              </div>
+            </form>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="ratio ratio-16x9 rounded-4 overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps?q=Hanoi&output=embed"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="mt-3 small text-secondary">
+              <i class="fa-solid fa-location-dot me-2"></i>Hà Nội ·
+              <i class="fa-solid fa-phone ms-3 me-2"></i>0975609826 ·
+              <i class="fa-solid fa-envelope ms-3 me-2"></i
+              >support@sownnpsport.vn
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-5">
+      <div class="container container-narrow">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <h5 class="text-white">SownNPXSport</h5>
+            <p class="mb-2">
+              Thời trang & phụ kiện thể thao cao cấp cho người yêu vận động.
+            </p>
+            <div class="d-flex gap-3">
+              <a href="#"><i class="fa-brands fa-facebook fa-lg"></i></a>
+              <a href="#"><i class="fa-brands fa-tiktok fa-lg"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram fa-lg"></i></a>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h6 class="text-white">Danh mục</h6>
+            <ul class="list-unstyled">
+              <li><a href="#sanpham">Sản phẩm</a></li>
+              <li><a href="#uudai">Ưu đãi</a></li>
+              <li><a href="#danhgia">Đánh giá</a></li>
+              <li><a href="#lienhe">Liên hệ</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h6 class="text-white">Chính sách</h6>
+            <ul class="list-unstyled">
+              <li><a href="#">Bảo hành</a></li>
+              <li><a href="#">Đổi trả</a></li>
+              <li><a href="#">Bảo mật</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr class="border-secondary my-4" />
+        <div class="d-flex justify-content-between small">
+          <span>© 2025 SownNPXSport</span>
+          <span>Made with ♥ by bạn</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS: Bootstrap, AOS, helpers -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({ once: true, duration: 700, offset: 80 });
+
+      // Demo xử lý form (chỉ hiển thị alert). Khi triển khai thật, gửi về Google Form/Sheet hoặc backend.
+      function handleSubmit(e) {
+        e.preventDefault();
+        document.getElementById("formAlert").classList.remove("d-none");
+        e.target.reset();
+        return false;
+      }
+
+      // Sticky shadow khi cuộn + active link
+      const nav = document.querySelector(".navbar");
+      const links = document.querySelectorAll(".nav-link");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 10) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+      // Active link on click
+      links.forEach((l) =>
+        l.addEventListener("click", () => {
+          links.forEach((x) => x.classList.remove("active"));
+          l.classList.add("active");
+        })
+      );
+    </script>
+  </body>
+</html>
